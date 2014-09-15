@@ -12,16 +12,15 @@ function [part] = make_xval_partition(n, n_folds)
 
 % YOUR CODE GOES HERE
 
-m = fix(n/n_folds)+1;
+m = int (n/n_folds);
 
 answ = [];
 for i = 1:n_folds
-    answ = cat(2,answ, ones(1,m) .* i);
+    cat(2,answ, ones(1,m) .* i);
 end
+index = 1:n;
 
-index = randperm(n);
-
-part = answ(index)
+part = answ(index);
 
 
 
